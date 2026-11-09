@@ -5,7 +5,7 @@ Teodor Ristic 101336978
 This is a java program that connects to postgres w/ JDBC and performs CRUD operations
 on the given "students" table.
 
-Demo Video:
+Demo Video: https://youtu.be/7RQEBWlWuD4
 
 FILES:
 - "database/createDatabase.sql" creates the database
