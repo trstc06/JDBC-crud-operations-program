@@ -29,13 +29,15 @@ public class StudentOperations{
     //add a student
     public void addStudent(String firstName, String lastName, String email, Date enrollmentDate){
         String SQL = "INSERT INTO students(first_name,last_name,email,enrollment_date) VALUES(?,?,?,?)";
-        try(Connection conn = DriverManager.getConnection(url, user, password); PreparedStatement pstmt = conn.prepareStatement(SQL)){
-
+        try(Connection conn = DriverManager.getConnection(url, user, password); 
+            
+        PreparedStatement pstmt = conn.prepareStatement(SQL)){
             pstmt.setString(1, firstName);
             pstmt.setString(2, lastName);
             pstmt.setString(3, email);
             pstmt.setDate(4, enrollmentDate);
             pstmt.executeUpdate();
+            
             System.out.println("Student added successfully!");
 
         }catch(SQLException ex){
@@ -46,11 +48,13 @@ public class StudentOperations{
     //update a student's email based on student_id
     public void updateStudentEmail(int studentId, String newEmail){
         String SQL = "UPDATE students SET email=? WHERE student_id=?";
-        try(Connection conn = DriverManager.getConnection(url, user, password); PreparedStatement pstmt = conn.prepareStatement(SQL)){
+        try(Connection conn = DriverManager.getConnection(url, user, password); 
 
+            PreparedStatement pstmt = conn.prepareStatement(SQL)){
             pstmt.setString(1, newEmail);
             pstmt.setInt(2, studentId);
             int rows = pstmt.executeUpdate();
+
             if(rows > 0){
                 System.out.println("Student email updated!");
             }else{
@@ -66,10 +70,12 @@ public class StudentOperations{
     public void deleteStudent(int studentId){
         String SQL = "DELETE FROM students WHERE student_id=?";
 
-        try(Connection conn = DriverManager.getConnection(url, user, password); PreparedStatement pstmt = conn.prepareStatement(SQL)){
+        try(Connection conn = DriverManager.getConnection(url, user, password); 
 
+            PreparedStatement pstmt = conn.prepareStatement(SQL)){
             pstmt.setInt(1, studentId);
             int rows = pstmt.executeUpdate();
+
             if(rows > 0){
                 System.out.println("Student deleted!");
             }else{
