@@ -1,0 +1,39 @@
+COMP3005 Database Management Systems: A3
+
+Teodor Ristic 101336978
+
+This is a java program that connects to postgres w/ JDBC and performs CRUD operations
+on the given "students" table.
+
+Demo Video:
+
+FILES:
+- "database/createDatabase.sql" creates the database
+- "database/schema.sql" creates the "students" table mentioned above
+- "database/seed.sql" inserts the starting data
+- "app/StudentOperations.java" the application
+- "lib/postgresql-42.7.14.jar" the PostgreSQL JDBC driver
+
+SETUP:
+1. In pgAdmin, run "createDatabase.sql" on the postgres database.
+2. Open a Query Tool on "students_db" and run schema.sql, then seed.sql.
+3. In StudentOperations.java program, change "password" to your PostgreSQL password.
+
+COMPILING PROG.:
+
+Terminal:
+1. javac -d out app/StudentOperations.java
+2. java -cp "out:lib/postgresql-42.7.14.jar" StudentOperations
+
+Windows OS: out;lib/postgresql-42.7.14.jar (for second command)
+
+IDE:
+1. Open the project in an IDE
+2. Add the jar in lib as an external library
+3. Run StudentOperations.java.
+
+FUNCTIONS (StudentOperations):
+- "getAllStudents()" prints every student in the table
+- "addStudent(first_name, last_name, email, enrollment_date)" inserts a new student
+- "updateStudentEmail(student_id, new_email)" updates the email of the student with that id
+- "deleteStudent(student_id)" deletes the student with that id
